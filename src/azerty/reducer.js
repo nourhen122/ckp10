@@ -1,4 +1,4 @@
-import { ADD, CANCEL, CONFIRM, DELETE, FILTER } from "./action-types";
+import { ADD, CANCEL, CONFIRM, DELETE, EDIT, FILTER } from "./action-types";
 
 
 
@@ -19,7 +19,8 @@ const init = {
         description : "homework",
         isDone : false
                 }
-            ]
+            ],
+        filter:false
         }
 
 const reducer = (state=init,{type,payload}) => {
@@ -38,12 +39,12 @@ const reducer = (state=init,{type,payload}) => {
             }
         case FILTER :
             return{
-                ...state,todos : [...state.todos.filter(el =>el.isDone !==false)]
+                ...state,filter : !state.filter
             }
-        case CANCEL: 
-        return{
-            ...state,todos : [...state.todos.map(el=>el)]
-        }
+        case EDIT : 
+        return {
+            ...state,todos : [...state.todos.map(el => el.id==payload.id ?payload:el )]
+    }
        default:
         return state
    }

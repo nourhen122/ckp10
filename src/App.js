@@ -7,14 +7,16 @@ import { useDispatch } from 'react-redux';
 import { can, filter } from './azerty/action';
 
 function App() {
+
   const dispatch = useDispatch()
   return (
     <div className="App">
       <AddTask />
       <Tasklist />
-      <button onClick={()=> dispatch(filter())} > Filter </button>
-      <button onClick={()=> dispatch(can())} >cancel</button>
+      <button onClick={()=> dispatch(filter())} > Filter/All </button>
+     
     </div>
+    
   );
 }
 

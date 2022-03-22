@@ -21,9 +21,10 @@ export const conf = (id) => {
         payload : id
     }
 }
-export const  edit = () => {
+export const  edit = (tab) => {
     return {
-        type: EDIT
+        type: EDIT ,
+        payload : tab
     }
 }
 export const del = (id) => {
@@ -32,9 +33,9 @@ export const del = (id) => {
         payload : id
     }
 }
-export const can = () => {
-    return {
-        type: CANCEL,
+// export const can = () => {
+//     return {
+//         type: CANCEL,
         
-    }
-}
+//     }
+// }

@@ -1,7 +1,8 @@
 
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { can, conf, del } from '../azerty/action'
+import { can, conf, del, edit } from '../azerty/action'
+import Edit from '../Edit'
 
 
 
@@ -15,8 +16,8 @@ const Task = ({task}) => {
         <h2> {task.description} </h2>
         <button onClick={()=>dispatch (conf(task.id))} >{task.isDone ? "Undo":"Complete"} </button>
         <button onClick={()=>dispatch(del(task.id))}>Delete</button>
+        <Edit task={task}  />
         
-        <button>Edit</button>
     </div>
   )
 }
